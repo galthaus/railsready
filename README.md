@@ -1,19 +1,15 @@
 #Rails Ready
-###Ruby and Rails setup script for Linux and OSX
+###Ruby and Rails setup script for Linux and Polipo
 ###Distros supported:
  * Ubuntu
- * CentOS 5 (utilizes the Fedora EPEL repo)
- * OSX (requires XCode/GCC to be installed. Install command line tools via XCode->preferences to install GCC)
+ * CentOS 6 (utilizes the Fedora EPEL repo)
 
 #
 ###Run this on a fresh install. It WILL update your system!
 
 ###To run:
 ####Linux
-  * `wget --no-check-certificate https://raw.github.com/joshfng/railsready/master/railsready.sh && bash railsready.sh`
-
-####OSX
-  * `curl -O https://raw.github.com/joshfng/railsready/master/railsready.sh && bash railsready.sh`
+  * `wget --no-check-certificate -O crowbar.sh https://raw.github.com/galthaus/railsready/master/crowbar.sh && bash crowbar.sh`
 
 The script will ask if you want to build Ruby from source or install RVM
 
