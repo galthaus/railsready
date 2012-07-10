@@ -55,7 +55,7 @@ echo " * Bundler, Passenger, and Rails gems"
 echo " * Git"
 
 echo -e "\nThis script is always changing."
-echo "Make sure you got it from https://github.com/joshfng/railsready"
+echo "Make sure you got it from http://github.com/joshfng/railsready"
 
 # Check if the user has sudo privileges.
 sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }
@@ -74,7 +74,7 @@ echo -e "\n==> done running $distro specific commands..."
 #now that all the distro specific packages are installed lets get Ruby
 #thanks wayneeseguin :)
 echo -e "\n=> Installing RVM the Ruby enVironment Manager http://rvm.beginrescueend.com/rvm/install/ \n"
-curl -O -L -k https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer
+curl -O -L -k http://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer
 chmod +x rvm-installer
 "$PWD/rvm-installer" >> $log_file 2>&1
 [[ -f rvm-installer ]] && rm -f rvm-installer
