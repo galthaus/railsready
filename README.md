@@ -9,6 +9,11 @@
 
 ###To run:
 ####Linux
+  * If behind a firewall, set http_proxy and https_proxy.
+    * For Dell, you can use your build VM's ntlmap as a proxy.
+    * /etc/ntlmaps/server.cfg and add the new vm's ip to the allowed clients
+    * restart the ntlmaps
+    * set http_proxy and https_proxy to `http://<ip of build vm>:5865/`
   * `wget --no-check-certificate -O crowbar.sh https://raw.github.com/galthaus/railsready/master/crowbar.sh && bash crowbar.sh`
 
 The script will ask if you want to build Ruby from source or install RVM
