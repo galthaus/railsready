@@ -48,9 +48,11 @@ export https_proxy='http://127.0.0.1:8123/'
 
 mkdir -p railsready/recipes
 wget --no-check-certificate -O railsready/railsready.sh https://github.com/galthaus/railsready/raw/master/railsready.sh
-wget --no-check-certificate -O railsready/recipes/redhat.sh https://raw.github.com/galthaus/railsready/master/recipes/redhat.sh
 wget --no-check-certificate -O railsready/recipes/centos.sh https://raw.github.com/galthaus/railsready/master/recipes/centos.sh
 wget --no-check-certificate -O railsready/recipes/ubuntu.sh https://raw.github.com/galthaus/railsready/master/recipes/ubuntu.sh
+cd railsready/recipes
+ln -s centos.sh redhat.sh
+cd -
 
 cd railsready/
 bash railsready.sh 2>&1 | tee -a railsready.out
