@@ -38,6 +38,8 @@ if [[ $MACHTYPE = *linux* ]] ; then
     distro="ubuntu"
   elif [[ $distro_sig =~ centos ]] ; then
     distro="centos"
+  elif [[ $distro_sig =~ "Red Hat" ]] ; then
+    distro="redhat"
   fi
 fi
 
@@ -74,7 +76,7 @@ echo -e "\n==> done running $distro specific commands..."
 #now that all the distro specific packages are installed lets get Ruby
 #thanks wayneeseguin :)
 echo -e "\n=> Installing RVM the Ruby enVironment Manager http://rvm.beginrescueend.com/rvm/install/ \n"
-curl -O -L -k http://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer
+curl -O -L -k https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer
 chmod +x rvm-installer
 "$PWD/rvm-installer" >> $log_file 2>&1
 [[ -f rvm-installer ]] && rm -f rvm-installer
