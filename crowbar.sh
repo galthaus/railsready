@@ -4,6 +4,8 @@ if [[ $MACHTYPE = *linux* ]] ; then
   distro_sig=$(cat /etc/issue)
   if [[ $distro_sig =~ ubuntu ]] ; then
     distro="ubuntu"
+  elif [[ $distro_sig =~ Ubuntu ]] ; then
+    distro="ubuntu"
   elif [[ $distro_sig =~ centos ]] ; then
     distro="centos"
   elif [[ $distro_sig =~ "Red Hat" ]] ; then
@@ -17,7 +19,7 @@ if [ "$distro" == "" ] ; then
 fi
 
 if [ "$distro" == "ubuntu" ] ; then
-  apt-get install polipo
+  apt-get -y install polipo
 else # Redhat / Centos
 
 # Add local and epel
@@ -30,7 +32,7 @@ EOF
   epel_repo_url="http://mirrors.servercentral.net/fedora/epel/6/i386/epel-release-6-7.noarch.rpm"
   rpm -Uvh $epel_repo_url
 
-  yum install polipo
+  yum -y install polipo
 fi
 
 /etc/init.d/polipo stop
@@ -38,9 +40,17 @@ if [ -e /root/polipo.tgz ] ; then
   cd /var/cache
   tar -zxvf /root/polipo.tgz
   cd -
-
-  # GREG: Update to use OFFLINE MODE
 fi
+
+grep -v parentProxy /etc/polipo/config > /tmp/config
+cp /tmp/config /etc/polipo/config
+if [[ $http_proxy && \
+  $http_proxy =~ http://([0-9a-z.]+:[0-9]+) ]] && \
+            ! grep -q parentProxy /etc/polipo/config;
+then
+  printf "\nparentProxy = \"${BASH_REMATCH[1]}\"\n">> /etc/polipo/config
+fi
+
 /etc/init.d/polipo start
 
 export http_proxy='http://127.0.0.1:8123/'
