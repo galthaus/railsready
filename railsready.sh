@@ -78,9 +78,6 @@ curl -O -L -k https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-inst
 chmod +x rvm-installer
 "$PWD/rvm-installer" >> $log_file 2>&1
 [[ -f rvm-installer ]] && rm -f rvm-installer
-echo -e "\n=> Setting up RVM to load with new shells..."
-#if RVM is installed as user root it goes to /usr/local/rvm/ not ~/.rvm
-echo '[[ -s "/usr/local/lib/rvm" ]] && source "/usr/local/lib/rvm"' >> /etc/profile.d/rvm.sh
 echo "==> done..."
 
 echo "=> Loading RVM..."
