@@ -56,12 +56,6 @@ echo " * libs needed to run Rails (sqlite, mysql, etc)"
 echo " * Bundler, Passenger, and Rails gems"
 echo " * Git"
 
-echo -e "\nThis script is always changing."
-echo "Make sure you got it from http://github.com/joshfng/railsready"
-
-# Check if the user has sudo privileges.
-sudo -v >/dev/null 2>&1 || { echo $script_runner has no sudo privileges ; exit 1; }
-
 echo -e "\n\n!!! Set to install RVM for user: $script_runner !!! \n"
 
 echo -e "\n=> Creating install dir..."
