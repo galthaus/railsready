@@ -34,8 +34,6 @@ echo "#################################"
 #determine the distro
 if [[ $MACHTYPE = *linux* ]] ; then
   distro_sig=$(cat /etc/issue)
-  if [[ $distro_sig =~ ubuntu ]] ; then
-    distro="ubuntu"
   if [[ $distro_sig =~ Ubuntu ]] ; then
     distro="ubuntu"
   elif [[ $distro_sig =~ centos ]] ; then
